@@ -32,7 +32,7 @@ obl_dict = {
     26: "Запорізька",
     27: "Житомирська"
 }
-DEFAULTS = {
+default_val = {
     'min_week': 1,
     'max_week': 52,
     'min_year': 1982,
@@ -46,7 +46,7 @@ DEFAULTS = {
 }
 df = pd.read_csv('df/combined_df.csv', index_col=False)
 
-for k, v in DEFAULTS.items():
+for k, v in default_val.items():
     if k not in st.session_state:
         st.session_state[k] = v
 
@@ -171,7 +171,7 @@ with col2:
     st.markdown("<br>", unsafe_allow_html=True)
 
     def reset_filters():
-        for key in DEFAULTS:
+        for key in default_val:
             st.session_state.pop(key, None)
 
 
